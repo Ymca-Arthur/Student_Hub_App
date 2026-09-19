@@ -26,6 +26,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button subtitleButton = findViewById(R.id.subtitleButton);
-        subtitleButton.setOnClickListener(v -> subtitleButton.setText("1"));
+        subtitleButton.setOnClickListener(v -> subtitleButton.setText("you made it johnny"));
+
+        EditText nameInput = findViewById(R.id.nameInput);
+        Button goButton = findViewById(R.id.goButton);
+        goButton.setOnClickListener(v -> {
+            String name = nameInput.getText().toString().trim();
+            if (name.equalsIgnoreCase("johnny")) {
+                startActivity(new Intent(MainActivity.this, SecondScreen.class));
+            } else {
+                Intent intent = new Intent(MainActivity.this, SecondScreen.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
     }
 }
