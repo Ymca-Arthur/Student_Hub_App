@@ -1,5 +1,6 @@
 package com.example.studenthubapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
