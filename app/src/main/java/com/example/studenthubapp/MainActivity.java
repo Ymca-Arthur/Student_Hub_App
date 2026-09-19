@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         Button goButton = findViewById(R.id.goButton);
         goButton.setOnClickListener(v -> {
             String name = nameInput.getText().toString().trim();
-            if (name.equalsIgnoreCase("johnny")) {
-                startActivity(new Intent(MainActivity.this, SecondScreen.class));
+            if (name.isEmpty()) {
+                Toast.makeText(MainActivity.this, "Please enter a name", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(MainActivity.this, SecondScreen.class);
                 intent.putExtra("name", name);
