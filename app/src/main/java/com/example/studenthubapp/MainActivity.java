@@ -1,16 +1,17 @@
 package com.example.studenthubapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,20 +26,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button subtitleButton = findViewById(R.id.subtitleButton);
-        subtitleButton.setOnClickListener(v -> subtitleButton.setText("you made it johnny"));
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(new Task("Math homework - page 42", "Due tomorrow", false));
+        tasks.add(new Task("History essay draft", "Due Thursday", false));
+        tasks.add(new Task("Study for physics exam", "Due next Monday", true));
+        tasks.add(new Task("English reading response", "Due Friday", false));
 
-        EditText nameInput = findViewById(R.id.nameInput);
-        Button goButton = findViewById(R.id.goButton);
-        goButton.setOnClickListener(v -> {
-            String name = nameInput.getText().toString().trim();
-            if (name.isEmpty()) {
-                Toast.makeText(MainActivity.this, "Please enter a name", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent intent = new Intent(MainActivity.this, SecondScreen.class);
-                intent.putExtra("name", name);
-                startActivity(intent);
-            }
-        });
+        RecyclerView recyclerView = findViewById(R.id.taskRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new TaskAdapter(tasks));
     }
 }
