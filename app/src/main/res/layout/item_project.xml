@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <CheckBox
-        android:id="@+id/taskDoneCheckbox"
+        android:id="@+id/projectDoneCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -19,14 +19,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/taskTitleText"
+            android:id="@+id/projectTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/taskDueDateText"
+            android:id="@+id/projectDueDateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp" />

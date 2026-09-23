@@ -1,12 +1,12 @@
 package com.example.studenthubapp;
 
-public class Task {
+public class Project {
 
     private final String title;
     private final String dueDate;
     private boolean done;
 
-    public Task(String title, String dueDate, boolean done) {
+    public Project(String title, String dueDate, boolean done) {
         this.title = title;
         this.dueDate = dueDate;
         this.done = done;
